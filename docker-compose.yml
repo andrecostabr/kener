@@ -2,7 +2,9 @@ version: "3.8"
 
 services:
   kener:
-    image: andrecostabr/kener:main        
+    #image: andrecostabr/kener:main  
+    build: .                           
+    container_name: kener      
     environment:
       - TZ=${TZ}
       - KENER_SECRET_KEY=${KENER_SECRET_KEY} # 🔐 API key / secret
