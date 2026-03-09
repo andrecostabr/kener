@@ -1,4 +1,15 @@
 <script lang="ts">
+  import { onMount } from 'svelte';
+    import { invalidateAll } from '$app/navigation';
+
+    onMount(() => {
+        // Atualiza silenciosamente os dados a cada 60 segundos
+        const intervalo = setInterval(() => {
+            invalidateAll();
+        }, 60000); 
+
+        return () => clearInterval(intervalo);
+    });
   import "../layout.css";
   import "../kener.css";
   import { ModeWatcher } from "mode-watcher";
